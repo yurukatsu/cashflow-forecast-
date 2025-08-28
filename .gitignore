@@ -91,7 +91,7 @@ mlruns/
 mlartifacts/
 
 # Data files
-data/
+# data/
 *.csv
 *.xlsx
 *.xls
