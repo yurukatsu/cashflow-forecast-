@@ -9,3 +9,6 @@ test:
 
 mlflow:
 	uv run mlflow ui --port 15001 --host 0.0.0.0
+
+luigid:
+	uv run luigid --address 0.0.0.0 --port 18082
