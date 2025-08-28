@@ -1,0 +1,2 @@
+name: "CatBoostModel"
+model_class: "src.models.catboost.CatBoostModel"

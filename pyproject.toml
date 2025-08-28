@@ -1,0 +1,30 @@
+[project]
+name = "cashflow-forecast"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "autogluon-tabular>=1.4.0",
+    "catboost>=1.2.8",
+    "click>=8.2.1",
+    "gokart==1.10.2",
+    "kaleido>=1.0.0",
+    "lightgbm>=4.6.0",
+    "mlflow==3.3.1",
+    "optuna>=4.5.0",
+    "plotly>=6.3.0",
+    "polars>=1.32.3",
+    "pydantic-settings>=2.10.1",
+    "scikit-learn>=1.7.1",
+    "setuptools>=80.9.0",
+    "torch>=2.8.0",
+    "tornado>=6.5.2",
+    "xgboost>=3.0.4",
+]
+
+[dependency-groups]
+dev = [
+    "isort>=6.0.1",
+    "ruff>=0.12.10",
+]

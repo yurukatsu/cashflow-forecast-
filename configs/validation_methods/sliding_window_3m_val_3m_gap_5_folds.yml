@@ -1,0 +1,7 @@
+strategy: "sliding_window"
+n_splits: 5
+validation_duration: "3mo"
+gap_duration: "3mo"
+step_duration: "3mo"
+train_start_date: "2022-04-01"
+test_end_date: "2025-03-31"

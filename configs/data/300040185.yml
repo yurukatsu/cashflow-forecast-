@@ -1,0 +1,35 @@
+name: "300040185"
+train_path: "data/raw/train.csv"
+test_path: "data/raw/test.csv"
+column:
+  target: "Flow"
+  date: "dtBaseDate"
+  company_id: "AccountCode"
+  bool_columns:
+    - "IsBizDate"
+    - "IsGotoDay_Biz"
+    - "IsGotoDay_PrevBiz"
+    - "IsGotoDay_NextBiz"
+    - "IsFirstBizDate"
+    - "IsLastBizDate"
+    - "IsQuaterEndMonth"
+    - "IsCalendarYearEndMonth"
+    - "IsCalendarYearStartMonth"
+    - "IsFiscalYearEndMonth"
+    - "IsFiscalYearStartMonth"
+    - "IsFiscalHalfYearEndMonth"
+    - "IsFiscalHalfYearStartMonth"
+    - "IsHoliday"
+    - "IsDay_27_NextBizOrOrg"
+    - "IsDay_28_NextBizOrOrg"
+    - "IsDay_Bonus_PrevBizOrOrg"
+    - "IsDay_6812m9d_NextBizOrOrg"
+    - "IsDay_Pension_PrevBizOrOrg"
+    - "IsBefore3PlusDayOff"
+  str_columns:
+    - "AccountCode"
+    - "AccountName"
+  ignore_columns:
+    - "AccountName"
+preprocess:
+  filter_company_ids: ["300040185"]

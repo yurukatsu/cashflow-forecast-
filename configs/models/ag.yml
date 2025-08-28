@@ -1,0 +1,10 @@
+name: "AutoGluonModel"
+model_class: "src.models.ag.AutoGluonModel"
+init_params:
+  label: "Flow"
+  problem_type: "regression"
+  verbosity: 2
+  log_to_file: true
+  log_file_path: "logs/autogluon.log"
+fit_params:
+  time_limit: 120
