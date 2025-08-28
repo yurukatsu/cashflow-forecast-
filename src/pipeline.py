@@ -1,6 +1,10 @@
 import datetime
+import tempfile
+from pathlib import Path
 
 import luigi
+import mlflow
+import gokart
 import polars as pl
 
 from src.configs import ExperimentConfig
@@ -34,6 +38,19 @@ class ExperimentPipeline(MlflowTask):
         }
 
     def _run(self) -> pl.DataFrame:
+        task_tree = gokart.make_task_info_as_tree_str(
+            self,
+            details=True,
+            abbr=False,
+        )
+        with tempfile.TemporaryDirectory() as temp_dir:
+            out_dir = Path(temp_dir)
+            out_dir.mkdir(parents=True, exist_ok=True)
+            task_tree_path = out_dir / "task_tree.txt"
+            with open(task_tree_path, "w") as f:
+                f.write(task_tree)
+
+            mlflow.log_artifact(str(task_tree_path), artifact_path="tasks")
         return self.load("train")
 
     @property

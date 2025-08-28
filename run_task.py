@@ -29,7 +29,7 @@ from src.pipeline import ExperimentPipeline
 )
 @click.option(
     "--scheduler-url",
-    default="http://0.0.0.0:8082",
+    default="http://0.0.0.0:18082",
     help="URL of the Luigi scheduler",
 )
 @click.option(
