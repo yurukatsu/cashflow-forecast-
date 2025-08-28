@@ -1,4 +1,4 @@
-name: catboost
+name: ag
 config_path:
   data: configs/data/all.yml
   validation_method: configs/validation_methods/sliding_window_3m_val_3m_gap_5_folds.yml

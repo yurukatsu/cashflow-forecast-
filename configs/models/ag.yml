@@ -7,4 +7,18 @@ init_params:
   log_to_file: true
   log_file_path: "logs/autogluon.log"
 fit_params:
-  time_limit: 120
+  time_limit: 60
+  presets: "extreme_quality"
+    # - "best_quality"
+    # - "high_quality"
+    # - "good_quality"
+    # - "medium_quality"
+    # - "experimental_quality"
+    # - "optimize_for_deployment"
+    # - "interpretable"
+    # - "ignore_text"
+feature_importance_params:
+  feature_stage: "transformed"
+  num_shuffle_sets: 5
+  subsample_size: 1000
+  # time_limit: 300

@@ -449,12 +449,15 @@ class TrainTask(MlflowTask):
                 self._log_fold_metrics(val_metrics, test_metrics)
 
                 # log result
-                config = self.load("config")
+                config: ExperimentConfig = self.load("config")
                 output = self._create_output(test_predictions)
                 output.log_to_mlflow()
 
                 # calculate feature importance and log it
-                feature_importance = model.get_feature_importance()
+                if params :=  config.model.feature_importance_params:
+                    feature_importance = model.get_feature_importance(**params)
+                else:
+                    feature_importance = model.get_feature_importance()
                 feature_importance.log_to_mlflow(log_html=True, log_png=True)
 
                 # Store results

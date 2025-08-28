@@ -21,3 +21,6 @@ class ModelConfig(BaseConfig):
     predict_params: dict[str, Any] | None = Field(
         default=None, description="Parameters for model prediction."
     )
+    feature_importance_params: dict[str, Any] | None = Field(
+        default=None, description="Parameters for feature importance extraction."
+    )

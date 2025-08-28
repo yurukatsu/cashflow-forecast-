@@ -46,16 +46,10 @@ class AutoGluonModel(BaseRegressionModel):
 
     def get_feature_importance(
         self,
-        feature_stage: str = "transformed",
-        num_shuffle_sets: int = 5,
-        subsample_size: int = 1000,
-        time_limit: int | None = None,
+        **feature_importance_params
     ):
         importance = self.model.feature_importance(
-            feature_stage=feature_stage,
-            num_shuffle_sets=num_shuffle_sets,
-            subsample_size=subsample_size,
-            time_limit=time_limit,
+            **feature_importance_params
         )
         df = pl.DataFrame(importance.reset_index(names="feature"))
         return FeatureImportance(df)
