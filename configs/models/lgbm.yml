@@ -1,2 +1,5 @@
 name: "LightGBMModel"
 model_class: "src.models.lgbm.LightGBMModel"
+init_params:
+  n_estimators: 200
+  learning_rate: 0.01
