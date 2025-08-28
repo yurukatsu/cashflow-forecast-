@@ -351,11 +351,9 @@ class TrainTask(MlflowTask):
             # Log ensemble metrics
             mlflow.log_metrics(ensemble_metrics)
 
-            # Also log validation ensemble metrics as test metrics for consistency
-            val_ensemble_metrics = ModelClass.evaluate(
-                y_test, ensemble_predictions, suffix="_val"
-            )
-            mlflow.log_metrics(val_ensemble_metrics)
+            # Log ensemble predictions as artifacts
+            output = self._create_output(ensemble_predictions)
+            output.log_to_mlflow(basename="ensemble_prediction")
 
             logger.info(f"Ensemble test metrics: {ensemble_metrics}")
 
