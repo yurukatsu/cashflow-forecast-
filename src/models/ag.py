@@ -38,6 +38,17 @@ class AutoGluonModel(BaseRegressionModel):
         train_data = self._prepare_data(X_train, y_train)
         tuning_data = self._prepare_data(X_val, y_val)
         self.model.fit(train_data, tuning_data=tuning_data, **fit_params)
+    def fit(
+        self,
+        X_train: pl.DataFrame,
+        y_train: pl.DataFrame | pl.Series,
+        X_val: pl.DataFrame,
+        y_val: pl.Series,
+        **fit_params,
+    ):
+        train_data = self._prepare_data(X_train, y_train)
+        self.tuning_data = self._prepare_data(X_val, y_val)
+        self.model.fit(train_data, **fit_params)
 
     def predict(self, X: pl.DataFrame, **predict_params):
         data = self._prepare_data(X)
@@ -49,6 +60,7 @@ class AutoGluonModel(BaseRegressionModel):
         **feature_importance_params
     ):
         importance = self.model.feature_importance(
+            data=self.tuning_data,
             **feature_importance_params
         )
         df = pl.DataFrame(importance.reset_index(names="feature"))

@@ -1,0 +1,6 @@
+name: "XGBoostModel"
+model_class: "src.models.xgboost.XGBoostModel"
+init_params:
+  learning_rate: 0.03
+  n_estimators: 1000
+  tree_method: "gpu_hist"

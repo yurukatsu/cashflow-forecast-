@@ -1,0 +1,6 @@
+name: "CatBoostModel"
+model_class: "src.models.catboost.CatBoostModel"
+init_params:
+  iterations: 2000
+  learning_rate: 0.02
+  task_type: "GPU"

@@ -86,6 +86,13 @@ class BaseRegressionModel(ABC):
             # モデルの保存
             mlflow.log_artifact(str(out_path), artifact_path=artifact_subdir)
 
+            out_path = out_dir / f"{basename}_class.pkl"
+            with out_path.open("wb") as f:
+                pickle.dump(self, f)
+
+            # モデルの保存
+            mlflow.log_artifact(str(out_path), artifact_path=artifact_subdir)
+
 
 class FeatureImportance:
     """
